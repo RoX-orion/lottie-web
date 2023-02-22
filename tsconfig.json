@@ -25,7 +25,8 @@
       "dom",
       "dom.iterable",
       "scripthost",
-      "ES2019"
+      "ES2019",
+      "webworker"
     ]
   },
   "include": [

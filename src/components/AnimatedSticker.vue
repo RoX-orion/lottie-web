@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import generateIdFor from '@/util/generateIdFor';
-import {onMounted, reactive, ref} from "vue";
+import {onMounted, onUnmounted, ref} from "vue";
 
 export type OwnProps = {
   animationId?: string;
@@ -37,6 +37,8 @@ let container: HTMLDivElement
 const LOTTIE_LOAD_DELAY = 3000;
 const ID_STORE = {};
 
+let newAnimation: RLottieInstance;
+
 async function ensureLottie() {
   if (!lottiePromise) {
     lottiePromise = import('@/lib/rlottie/RLottie') as unknown as Promise<RLottieClass>;
@@ -47,7 +49,7 @@ async function ensureLottie() {
 }
 // setTimeout(ensureLottie, LOTTIE_LOAD_DELAY);
 // await ensureLottie();
-const containerId = () => generateIdFor(ID_STORE, true);
+const containerId = generateIdFor(ID_STORE, true);
 
 const prop = defineProps<OwnProps>();
 
@@ -56,6 +58,11 @@ let containerRLottie = ref<any>(null);
 onMounted(() => {
   container = containerRLottie.value;
   init(prop);
+});
+
+onUnmounted(() => {
+  console.log('containerId', containerId);
+  newAnimation.removeContainer(containerId);
 });
 
 const init = async ({
@@ -84,8 +91,8 @@ const init = async ({
     return;
   }
   await ensureLottie();
-  const newAnimation = RLottie.init(
-    "containerId",
+  newAnimation = RLottie.init(
+    containerId,
     container,
     onLoad,
     animationId || generateIdFor(ID_STORE, true),
