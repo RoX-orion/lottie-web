@@ -560,7 +560,6 @@ class RLottie {
   }
 
   private requestFrame(frameIndex: number) {
-    console.log('render');
     this.frames[frameIndex] = WAITING;
     workers[this.workerIndex].request({
       name: 'renderFrames',

@@ -1,9 +1,8 @@
 <template>
   <div class="container">
     <h1>Lottie-Web Demo</h1>
-    <router-link to="/test">
-      <p>跳转</p>
-    </router-link>
+    <span style="color: #666666">动画信息：一倍速率、180像素大小、循环播放。</span>
+    <a class="github-link" href="https://github.com/RoX-orion/lottie-web/tree/main" target="_blank">github</a>
     <div class="lottie">
       <div
         class="lottie-item"
@@ -34,7 +33,7 @@ const lottie = [
   },
   {
     path: LOCAL_TGS_URLS.Simple,
-    title: 'Speed',
+    title: 'Simple',
     text: 'Telegram is so simple you already know how to use it.'
   },
   {
@@ -83,6 +82,10 @@ const lottie = [
 <style lang="scss" scoped>
 .container {
   text-align: center;
+
+  .github-link {
+    font-size: 18px;
+  }
 }
 
 .lottie {
