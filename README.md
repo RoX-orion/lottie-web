@@ -21,4 +21,5 @@ npm run build
 
 ## 许可证
 Lottie-Web根据Apache License v2软件许可证的条款获得许可。有关详细信息，请参阅[LICENSE](https://github.com/RoX-orion/lottie-web/blob/main/LICENSE).
+
 Copyright (c) 2023-present Andre Lina.
