@@ -6,16 +6,19 @@
 - [在线演示](http://lottie.liehuzuo.top)
 
 ## 启动
-### 本地开发环境
+```shell
+git clone https://github.com/RoX-orion/lottie-web.git
 ```
+``` shell
 npm install
 ```
-
-```
+### 本地开发环境
+```shell
 npm run dev
 ```
+
 ### 打包到生产环境
-```
+```shell
 npm run build
 ```
 
